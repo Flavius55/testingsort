@@ -1,0 +1,12 @@
+.bars{
+    width:15px;
+    background-color:red;
+    margin-left: 5px;
+    display:inline-block;
+}
+.grafic{
+    background-color: aquamarine;
+    margin-left:10vw;
+    margin-top:10vh;
+    margin-right:10vw;
+}
