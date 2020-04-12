@@ -1,12 +1,22 @@
 .bars{
-    width:15px;
+    width:1vw;
     background-color:red;
-    margin-left: 5px;
+    margin-left: 0.5vw;
     display:inline-block;
 }
 .grafic{
     background-color: aquamarine;
+    height:65vh;
     margin-left:10vw;
-    margin-top:10vh;
+    margin-top:20vh;
     margin-right:10vw;
+    /*border-radius: 2vw;*/
+}
+.buttoN{
+    position: absolute;
+    top:85vh;
+    left:30vw;
+    height: 5vh;
+    width: 10vw;
+    background-color:green;
 }
