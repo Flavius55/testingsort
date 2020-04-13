@@ -28,8 +28,24 @@
     width: 10vw;
     background-color:green;
 }
+.bmerge{
+    position: absolute;
+    top:90vh;
+    left:61vw;
+    height: 5vh;
+    width: 10vw;
+    background-color:green; 
+}
 .pad{
     padding-top: 2.5vh;
     padding-left: 5vw;
     height:30vh;
+}
+.afis{
+    position: absolute;
+    top:90vh;
+    left:82vw;
+    height: 5vh;
+    width: 10vw;
+    background-color:green;
 }
