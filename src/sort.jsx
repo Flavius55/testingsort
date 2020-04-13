@@ -58,7 +58,7 @@ class Element extends React.Component
 function reset()
 {
     generateNewArray();
-    console.log('reeeeeeeeeeeeeeeeeeeeeeset');
+    //console.log('reeeeeeeeeeeeeeeeeeeeeeset');
     vector.map((value,index) =>
     {
         let bar = document.getElementsByClassName("bars");
