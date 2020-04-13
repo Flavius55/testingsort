@@ -27,9 +27,7 @@ function randomInteger(min,max)
 
 class Element extends React.Component
 {
-    constructor(props){
-        super(props);
-    }
+    
 
     render()
     {
@@ -79,7 +77,6 @@ function BubbleSort()
             OK=0;
             compara.push(i);
             compara.push(i+1);
-            let j= i+1;
         }
     }while(OK!==1);
 
