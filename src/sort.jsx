@@ -61,6 +61,7 @@ function reset()
     {
         let bar = document.getElementsByClassName("bars");
         bar[index].style.height = Math.floor(value*((wheight)*65/100)/100) +'px';
+        return 0;
     })
 }
 
@@ -84,14 +85,17 @@ function BubbleSort()
     let bar = document.getElementsByClassName("bars");
     for(let i=0;i<compara.length-1;i+=2)
     {
-        setTimeout(() => {
-            let x = compara[i];
-            let y = compara[i+1];
+        let x = compara[i];
+        let y = compara[i+1];
+
+             setTimeout(() => {
             let h1=bar[x].style.height
             let h2=bar[y].style.height;
             bar[x].style.height=h2;
             bar[y].style.height=h1;
-        },i*5);
+              },i*5);
+        
+        
     }
  
 }
@@ -173,9 +177,11 @@ function MergeSort()
     let bar = document.getElementsByClassName("bars");
     for(let i=0;i<compara.length-1;i+=2)
     {
+        let h = compara[i];
+        let g = compara[i+1];
         setTimeout(() => {
-            let x = Math.floor(compara[i+1]*((wheight)*65/100)/100);
-            bar[compara[i]].style.height = x+'px';
+            let x = Math.floor(g*((wheight)*65/100)/100);
+            bar[h].style.height = x+'px';
         },i*7);
     }
 }
