@@ -6,7 +6,7 @@
 }
 .grafic{
     background-color: aquamarine;
-    height:65vh;
+    height:70vh;
     margin-left:10vw;
     margin-top:20vh;
     margin-right:10vw;
@@ -14,9 +14,22 @@
 }
 .buttoN{
     position: absolute;
-    top:85vh;
+    top:90vh;
     left:30vw;
     height: 5vh;
     width: 10vw;
     background-color:green;
+}
+.buttN{
+    position: absolute;
+    top:90vh;
+    left:50vw;
+    height: 5vh;
+    width: 10vw;
+    background-color:green;
+}
+.pad{
+    padding-top: 2.5vh;
+    padding-left: 5vw;
+    height:30vh;
 }

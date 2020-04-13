@@ -25,11 +25,6 @@ function randomInteger(min,max)
     return Math.floor(Math.random()*(max-min)+min);
 }
 
-function distantier()
-{
-    document.getElementsByClassName("bars")[0].style.marginLeft="5vw";
-}
-
 class Element extends React.Component
 {
     constructor(props){
@@ -39,10 +34,9 @@ class Element extends React.Component
     render()
     {
         generateNewArray();
-        console.log(window.height);
-        console.log(window.width);
         return(
             <div className="grafic">
+                <div className="pad">
                 {
                 vector.map((value,index) =>
                 ( <div className="bars" 
@@ -50,26 +44,61 @@ class Element extends React.Component
                         key={index}></div>
                 ))
                 }
-                <button className="buttoN" onClick={reset()}></button>
+                </div>
+                <button className="buttN" onClick={(e) => reset()}></button>
+                <button className="buttoN" onClick={(e) => BubbleSort()}></button>
             </div>
         );
     }
 }
 
-window.onload = function()
-{
-    distantier();
-    //console.log(Math.floor(wheight*65/100)-1);
-}
-
 function reset()
 {
+    //BubbleSort();
     generateNewArray();
-    /*let bar = document.getElementsByClassName("bars");
-    for(let i=0;i<lungime;i++)
+    vector.map((value,index) =>
     {
-        bar[i].style.height = vector[i]*(((wheight)*65/100)/100)+'px';
-    }*/
+        let bar = document.getElementsByClassName("bars");
+        bar[index].style.height = Math.floor(value*((wheight)*65/100)/100) +'px';
+    })
+}
+
+function BubbleSort()
+{
+    let OK,aux;
+    compara = [];
+    do{
+        OK=1;
+        for(let i=0;i<lungime-1;i++) if(vector[i]>vector[i+1])
+        {
+            aux=vector[i];
+            vector[i]=vector[i+1];
+            vector[i+1]=aux;
+            OK=0;
+            compara.push(i);
+            compara.push(i+1);
+            let j= i+1;
+        }
+    }while(OK!==1);
+
+    let bar = document.getElementsByClassName("bars");
+    for(let i=0;i<compara.length-1;i+=2)
+    {
+        setTimeout(() => {
+            let x = compara[i];
+            let y = compara[i+1];
+            let h1=bar[x].style.height
+            let h2=bar[y].style.height;
+            bar[x].style.height=h2;
+            bar[y].style.height=h1;
+        },i*5);
+    }
+ 
+}
+
+window.onload = function()
+{
+    reset();
 }
 
 export default Element;
