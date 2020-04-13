@@ -19,6 +19,10 @@ function generateNewArray()
     }
     let r=randomInteger(5,lungime-5);
     vector[r] = maxim-1;
+    r=randomInteger(5,lungime-5);
+    vector[r] = maxim-1;
+    r=randomInteger(5,lungime-5);
+    vector[r] = maxim-1;
 }
 
 function randomInteger(min,max)
