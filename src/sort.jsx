@@ -58,7 +58,6 @@ class Element extends React.Component
 function reset()
 {
     generateNewArray();
-    //console.log('reeeeeeeeeeeeeeeeeeeeeeset');
     vector.map((value,index) =>
     {
         let bar = document.getElementsByClassName("bars");
@@ -105,7 +104,7 @@ function afis()
     {
         let bar=document.getElementsByClassName("bars");
         bar[i].style.height=Math.floor(vector[i]*((wheight)*65/100)/100)+'px';
-        console.log(vector[i]);
+        //console.log(vector[i]);
     }
 }
 
