@@ -55,6 +55,7 @@ class Element extends React.Component
                 <button className="afis" onClick={(e) => afis()}>afis</button>
                 <button className="quick" 
                 onClick={(e) => QuickSort()}>quick</button>
+               
             </div>
         );
     }
