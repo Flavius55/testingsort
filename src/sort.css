@@ -36,6 +36,14 @@
     width: 10vw;
     background-color:green; 
 }
+.quick{
+    position: absolute;
+    top:95vh;
+    left:31vw;
+    height: 5vh;
+    width: 10vw;
+    background-color:green; 
+}
 .pad{
     padding-top: 2.5vh;
     padding-left: 5vw;

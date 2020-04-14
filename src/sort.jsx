@@ -53,6 +53,8 @@ class Element extends React.Component
                 <button className="bmerge" 
                 onClick={(e) => MergeSort()}>merge</button>
                 <button className="afis" onClick={(e) => afis()}>afis</button>
+                <button className="quick" 
+                onClick={(e) => QuickSort()}>quick</button>
             </div>
         );
     }
@@ -110,7 +112,7 @@ function afis()
     {
         let bar=document.getElementsByClassName("bars");
         bar[i].style.height=Math.floor(vector[i]*((wheight)*65/100)/100)+'px';
-        //console.log(vector[i]);
+        console.log(vector[i]);
     }
 }
 
@@ -187,6 +189,63 @@ function MergeSort()
             let x = Math.floor(g*((wheight)*65/100)/100);
             bar[h].style.height = x+'px';
         },i*7);
+    }
+}
+
+function quick(array,s,d)
+{
+    let i=s;
+    let j=d;
+    let pi=0,pj=1;
+
+    while(i<j)
+    {
+        if(array[i]>array[j])
+        {
+            let aux=array[i];
+            array[i]=array[j];
+            array[j]=aux;
+            aux=pi;
+            pi=pj;
+            pj=aux;
+            compara.push(i);
+            compara.push(j);
+        }
+        i+=pi;
+        j-=pj;
+    }
+    return i;
+}
+
+function QuickSortMic(array,s,d)
+{
+    if(s<d)
+    {
+        let m = quick(array,s,d);
+        QuickSortMic(array,s,m);
+        QuickSortMic(array,m+1,d);
+    }
+}
+
+function QuickSort()
+{
+    compara = [];
+    QuickSortMic(vector,0,vector.length-1);
+
+    let bar = document.getElementsByClassName("bars");
+    for(let i=0;i<compara.length-1;i+=2)
+    {
+        console.log(compara[i]+' '+compara[i+1]);
+
+        let x = compara[i];
+        let y = compara[i+1];
+
+             setTimeout(() => {
+            let h1=bar[x].style.height
+            let h2=bar[y].style.height;
+            bar[x].style.height=h2;
+            bar[y].style.height=h1;
+              },i*25);
     }
 }
 
