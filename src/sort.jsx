@@ -117,7 +117,7 @@ function BubbleSort()
     }
 }
 
-function afis()
+/*function afis()
 {
     for(let i=0;i<vector.length;i++)
     {
@@ -125,7 +125,7 @@ function afis()
         bar[i].style.height=`${Math.floor(vector[i]*65/100)}vh`;
         console.log(vector[i]);
     }
-}
+}*/
 
 window.onload = function()
 {
