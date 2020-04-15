@@ -1,59 +1,45 @@
 .bars{
     width:1vw;
-    background-color:red;
+    background-color:black;
     margin-left: 0.5vw;
     display:inline-block;
 }
 .grafic{
-    background-color: aquamarine;
     height:70vh;
     margin-left:10vw;
-    margin-top:20vh;
+    margin-top:10vh;
     margin-right:10vw;
-    /*border-radius: 2vw;*/
 }
-.buttoN{
+
+
+.button_black{
+    color: black !important;
+    text-decoration: none;
+    background: #ffffff;
+    border: 4px solid #222222 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
     position: absolute;
-    top:90vh;
-    left:30vw;
-    height: 5vh;
     width: 10vw;
-    background-color:green;
+    height: 7vh;
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+    position: relative;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    
 }
-.buttN{
+.button_black:hover{
+    color: #ffffff !important;
+    background: #6200EE;
+    border-color: #6200EE !important;
+    transition: all 0.4s ease 0s;
+}
+
+.buttons{
     position: absolute;
-    top:90vh;
-    left:50vw;
-    height: 5vh;
-    width: 10vw;
-    background-color:green;
-}
-.bmerge{
-    position: absolute;
-    top:90vh;
-    left:61vw;
-    height: 5vh;
-    width: 10vw;
-    background-color:green; 
-}
-.quick{
-    position: absolute;
-    top:95vh;
-    left:31vw;
-    height: 5vh;
-    width: 10vw;
-    background-color:green; 
-}
-.pad{
-    padding-top: 2.5vh;
-    padding-left: 5vw;
-    height:30vh;
-}
-.afis{
-    position: absolute;
-    top:90vh;
-    left:82vw;
-    height: 5vh;
-    width: 10vw;
-    background-color:green;
+    top:83vh;
+    left:5vw;
+    right:5vw;
 }

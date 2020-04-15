@@ -2,11 +2,12 @@
 import React from 'react';
 import './sort.css';
 
+
 let vector = [];
 let compara = [];
 let maxim=100;
+let onSort=0;
 
-let wheight = window.innerHeight;
 let wwidth  = window.innerWidth;
 
 let lungime = (wwidth*7/10)/(wwidth/200*3) ;
@@ -43,19 +44,17 @@ class Element extends React.Component
                 {
                 vector.map((value,index) =>
                 ( <div className="bars" 
-                        style={{height: `${Math.floor(value*((wheight)*65/100)/100)}px`}} 
+                        style={{height: `${Math.floor(value*65/100)}vh`}} 
                         key={index}></div>
                 ))
                 }
                 </div>
-                <button className="buttN" onClick={(e) => reset()}>reset</button>
-                <button className="buttoN" onClick={(e) => BubbleSort()}>bubble</button>
-                <button className="bmerge" 
-                onClick={(e) => MergeSort()}>merge</button>
-                <button className="afis" onClick={(e) => afis()}>afis</button>
-                <button className="quick" 
-                onClick={(e) => QuickSort()}>quick</button>
-               
+                <div className="buttons">
+                    <button className="button_black" onClick={()=>reset()}>Reset</button>
+                    <button className="button_black" onClick={()=>BubbleSort()}>BubbleSort</button>
+                    <button className="button_black" onClick={()=>MergeSort()}>MergeSort</button>
+                    <button className="button_black" onClick={()=>QuickSort()}>QuickSort</button>
+                </div>
             </div>
         );
     }
@@ -63,48 +62,59 @@ class Element extends React.Component
 
 function reset()
 {
-    generateNewArray();
-    vector.map((value,index) =>
+    if(onSort===0)
     {
-        let bar = document.getElementsByClassName("bars");
-        bar[index].style.height = Math.floor(value*((wheight)*65/100)/100) +'px';
-        return 0;
-    })
+        generateNewArray();
+        vector.map((value,index) =>
+        {
+            let bar = document.getElementsByClassName("bars");
+            bar[index].style.height = `${Math.floor(value*65/100)}vh`;
+            bar[index].style.backgroundColor="black";
+            return 0;
+        })
+    }
 }
 
 function BubbleSort()
 {
-    let OK,aux;
-    compara = [];
-    do{
-        OK=1;
-        for(let i=0;i<lungime-1;i++) if(vector[i]>vector[i+1])
-        {
-            aux=vector[i];
-            vector[i]=vector[i+1];
-            vector[i+1]=aux;
-            OK=0;
-            compara.push(i);
-            compara.push(i+1);
-        }
-    }while(OK!==1);
-
-    let bar = document.getElementsByClassName("bars");
-    for(let i=0;i<compara.length-1;i+=2)
+    if(onSort === 0)
     {
-        let x = compara[i];
-        let y = compara[i+1];
+        onSort=1;
+        let OK,aux;
+        compara = [];
+        do{
+            OK=1;
+            for(let i=0;i<lungime-1;i++) if(vector[i]>vector[i+1])
+            {
+                aux=vector[i];
+                vector[i]=vector[i+1];
+                vector[i+1]=aux;
+                OK=0;
+                compara.push(i);
+                compara.push(i+1);
+            }
+        }while(OK!==1);
 
-             setTimeout(() => {
-            let h1=bar[x].style.height
-            let h2=bar[y].style.height;
-            bar[x].style.height=h2;
-            bar[y].style.height=h1;
-              },i*5);
-        
-        
+        let bar = document.getElementsByClassName("bars");
+        for(let i=0;i<compara.length-1;i+=2)
+        {
+            let x = compara[i];
+            let y = compara[i+1];
+
+                setTimeout(() => {
+                let h1=bar[x].style.height
+                let h2=bar[y].style.height;
+                bar[x].style.height=h2;
+                bar[y].style.height=h1;
+                },i*5);
+        }
+        setTimeout(() =>
+        {
+            for(let i=0;i<vector.length;i++)
+            bar[i].style.backgroundColor="#6200EE";
+            onSort=0;
+        },(compara.length-1)*5);
     }
- 
 }
 
 function afis()
@@ -112,7 +122,7 @@ function afis()
     for(let i=0;i<vector.length;i++)
     {
         let bar=document.getElementsByClassName("bars");
-        bar[i].style.height=Math.floor(vector[i]*((wheight)*65/100)/100)+'px';
+        bar[i].style.height=`${Math.floor(vector[i]*65/100)}vh`;
         console.log(vector[i]);
     }
 }
@@ -178,18 +188,28 @@ function MergeSortMic(array,b,s,d)
 
 function MergeSort()
 {
-    compara = [];
-    MergeSortMic(vector,secundar,0,vector.length-1);
-
-    let bar = document.getElementsByClassName("bars");
-    for(let i=0;i<compara.length-1;i+=2)
+    if(onSort===0)
     {
-        let h = compara[i];
-        let g = compara[i+1];
-        setTimeout(() => {
-            let x = Math.floor(g*((wheight)*65/100)/100);
-            bar[h].style.height = x+'px';
-        },i*7);
+        onSort=1;
+        compara = [];
+        MergeSortMic(vector,secundar,0,vector.length-1);
+
+        let bar = document.getElementsByClassName("bars");
+        for(let i=0;i<compara.length-1;i+=2)
+        {
+            let h = compara[i];
+            let g = compara[i+1];
+            setTimeout(() => {
+                let x =`${Math.floor(g*65/100)}vh`;
+                bar[h].style.height = x;
+            },i*7);
+        }
+        setTimeout(() =>
+        {
+            for(let i=0;i<vector.length;i++)
+            bar[i].style.backgroundColor="#6200EE";
+            onSort=0;
+        },(compara.length-1)*7);
     }
 }
 
@@ -230,23 +250,31 @@ function QuickSortMic(array,s,d)
 
 function QuickSort()
 {
-    compara = [];
-    QuickSortMic(vector,0,vector.length-1);
-
-    let bar = document.getElementsByClassName("bars");
-    for(let i=0;i<compara.length-1;i+=2)
+    if(onSort===0)
     {
-        console.log(compara[i]+' '+compara[i+1]);
+        onSort=1;
+        compara = [];
+        QuickSortMic(vector,0,vector.length-1);
 
-        let x = compara[i];
-        let y = compara[i+1];
+        let bar = document.getElementsByClassName("bars");
+        for(let i=0;i<compara.length-1;i+=2)
+        {
+            let x = compara[i];
+            let y = compara[i+1];
 
-             setTimeout(() => {
-            let h1=bar[x].style.height
-            let h2=bar[y].style.height;
-            bar[x].style.height=h2;
-            bar[y].style.height=h1;
-              },i*25);
+                setTimeout(() => {
+                let h1=bar[x].style.height
+                let h2=bar[y].style.height;
+                bar[x].style.height=h2;
+                bar[y].style.height=h1;
+                },i*25);
+        }
+        setTimeout(() =>
+        {
+            for(let i=0;i<vector.length;i++)
+            bar[i].style.backgroundColor="#6200EE";
+            onSort=0;
+        },(compara.length-1)*25);
     }
 }
 
