@@ -106,14 +106,20 @@ function BubbleSort()
                 let h2=bar[y].style.height;
                 bar[x].style.height=h2;
                 bar[y].style.height=h1;
+                bar[x].style.backgroundColor="#6200EE";
+                bar[y].style.backgroundColor="#6200EE";
                 },i*5);
+                setTimeout(() => {
+                bar[x].style.backgroundColor="black";
+                bar[y].style.backgroundColor="black";
+                },(i+1)*5);
         }
         setTimeout(() =>
         {
             for(let i=0;i<vector.length;i++)
             bar[i].style.backgroundColor="#6200EE";
             onSort=0;
-        },(compara.length-1)*5);
+        },(compara.length)*5);
     }
 }
 
@@ -202,14 +208,18 @@ function MergeSort()
             setTimeout(() => {
                 let x =`${Math.floor(g*65/100)}vh`;
                 bar[h].style.height = x;
+                bar[h].style.backgroundColor = "#6200EE";
             },i*7);
+            setTimeout(() => {
+                bar[h].style.backgroundColor = "black";
+            },(i+5)*7);
         }
         setTimeout(() =>
         {
             for(let i=0;i<vector.length;i++)
             bar[i].style.backgroundColor="#6200EE";
             onSort=0;
-        },(compara.length-1)*7);
+        },(compara.length+5)*7);
     }
 }
 
@@ -267,14 +277,20 @@ function QuickSort()
                 let h2=bar[y].style.height;
                 bar[x].style.height=h2;
                 bar[y].style.height=h1;
+                bar[x].style.backgroundColor="#6200EE";
+                bar[y].style.backgroundColor="#6200EE";
                 },i*25);
+                setTimeout(() => {
+                    bar[x].style.backgroundColor="black";
+                    bar[y].style.backgroundColor="black";
+                    },(i+1)*25);
         }
         setTimeout(() =>
         {
             for(let i=0;i<vector.length;i++)
             bar[i].style.backgroundColor="#6200EE";
             onSort=0;
-        },(compara.length-1)*25);
+        },(compara.length)*25);
     }
 }
 
